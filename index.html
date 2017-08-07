@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/master.css">
+        <title>Meu Plano de Negócios</title>
+    </head>
+    <body>
+
+      <style media="print">
+        .box{
+          border: 1px solid black;
+        }
+        .box-body{
+          font-size: 10pt;
+        }
+        .add-button{
+          display: none;
+        }
+        .drop-shadow{
+          box-shadow: none;
+        }
+        .delete-item{
+          display: none;
+        }
+      </style>
+
+        <div class="app">
+          <div class="info">
+            <p>Documento salvo com sucesso...</p>
+          </div>
+          <nav class="top-nav">
+            <button type="button" name="button" onClick="saveModelo()">Salvar</button>
+            <button type="button" name="button" onClick="clearData()">Limpar</button>
+            <button type="button" name="button" onClick="">Ajuda</button>
+            <span class="beta-tag">BETA</span>
+          </nav>
+          <div class="page-title">
+            <h1 class=""><input type="text" name="" value="Meu Modelo de Negócio" class="drop-t-shadow"></h1>
+          </div>
+          <div class="box-container">
+            <div class="box box-full proposta drop-shadow" >
+              <div class="box-title">
+                <h1>Proposta de Valor</h1>
+                <div class="box-icon">
+                  <img src="img/proposta.png" alt="">
+                </div>
+              </div>
+
+
+              <div class="box-body" id="modelo_proposta">
+              </div>
+
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="box drop-shadow area-1">
+              <div class="box-title">
+                <h1>Recursos</h1>
+                <div class="box-icon">
+                  <img src="img/recursos.png" alt="">
+                </div>
+              </div>
+              <div class="box-body" id="modelo_recursos">
+              </div>
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="box drop-shadow area-1">
+              <div class="box-title">
+                <h1>Parceiros</h1>
+                <div class="box-icon">
+                  <img src="img/parceiros.png" alt="">
+                </div>
+              </div>
+              <div class="box-body" id="modelo_parceiros">
+
+              </div>
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="box drop-shadow area-1">
+              <div class="box-title">
+                <h1>Atividades</h1>
+                <div class="box-icon">
+                  <img src="img/atividades.png" alt="">
+                </div>
+              </div>
+              <div class="box-body" id="modelo_atividades">
+
+              </div>
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- AREA 2 -->
+
+            <div class="box drop-shadow area-2">
+              <div class="box-title">
+                <h1>Canais</h1>
+                <div class="box-icon">
+                  <img src="img/canais.png" alt="">
+                </div>
+              </div>
+              <div class="box-body" id="modelo_canais">
+
+
+              </div>
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="box drop-shadow area-2">
+              <div class="box-title">
+                <h1>Segmentos</h1>
+                <div class="box-icon">
+                  <img src="img/segmentos.png" alt="">
+                </div>
+              </div>
+              <div class="box-body" id="modelo_segmentos">
+
+              </div>
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="box drop-shadow area-2">
+              <div class="box-title">
+                <h1>Relacionamento</h1>
+                <div class="box-icon">
+                  <img src="img/relacionamento.png" alt="">
+                </div>
+              </div>
+              <div class="box-body" id="modelo_relacionamento">
+
+
+              </div>
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- AREA 3 -->
+
+            <div class="box box-half drop-shadow area-3">
+              <div class="box-title">
+                <h1>Estrutura de Custos</h1>
+                <div class="box-icon">
+                  <img src="img/custos.png" alt="">
+                </div>
+              </div>
+              <div class="box-body" id="modelo_custos">
+
+              </div>
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="box box-half drop-shadow area-3">
+              <div class="box-title">
+                <h1>Fontes de Receita</h1>
+                <div class="box-icon">
+                  <img src="img/fontes.png" alt="">
+                </div>
+              </div>
+              <div class="box-body" id="modelo_receita">
+
+
+              </div>
+              <div class="add-container">
+                <button type="button" name="add" class="add-button drop-shadow">Adicionar</button>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <footer class="clearfix">
+          <div class="foot">
+            Desenvolvido por Guilherme Lagemann
+            <div class="social">
+              <a href="https://github.com/lagemanngui" target="_blank"><img src="img/git.png" alt=""></a>
+              <a href="https://www.linkedin.com/in/guilhermedlagemann/" target="_blank"><img src="img/in.png" alt=""></a>
+              <a href="https://facebook.com/guilherme.lagemann" target="_blank"><img src="img/face.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="disclaimer">
+            <p>Esta página tem como objetivo facilitar a criação de um Modelo de Negócios, conforme proposto por <a href="http://alexosterwalder.com/">Alex Osterwalder</a>
+              e <a href="https://en.wikipedia.org/wiki/Yves_Pigneur">Yves Pigneur</a>.
+              Se você estiver com dúvidas quanto ao preenchimento, recomendo assistir a este <a href="https://www.youtube.com/watch?v=otov7o9byUk">vídeo</a>
+              feito pelo canal "Tamo Junto". Os ícones desta página foram feitos por <a href="https://www.flaticon.com/authors/gregor-cresnar">Gregor Cresnar</a>,
+              <a href="https://www.flaticon.com/authors/freepik">Freepik</a> e <a href="https://www.flaticon.com/authors/madebyoliver">Madebyoliver</a>. Este é um projeto open source,
+              se você deseja contribuir de alguma forma, entre em contato no <a href="https://github.com/lagemanngui">Github</a>.
+              Atenção: Todos os dados são salvos localmente no seu computador, se você limpar seus dados de navegação não poderá mais
+              acessar o modelo criado. Não salvamos nenhum dado seu.
+            </p>
+            <br>
+            <p>
+            Copyright 2017 Guilherme Lagemann | Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>
+          </p>
+          </div>
+          <div class="version">
+            <p><i>Versão 1.8.17b</i></p>
+          </div>
+        </footer>
+
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/autosize.min.js"></script>
+        <script type="text/javascript" src="js/mainController.js"></script>
+
+    </body>
+</html>
