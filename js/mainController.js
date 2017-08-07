@@ -108,5 +108,7 @@ function clearData(){
     window.localStorage.clear();
     location.reload();
   }
-
+}
+function openHelp(){
+  window.open("https://github.com/lagemanngui/bmodel/wiki/Ajuda");
 }
