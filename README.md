@@ -1,2 +1,2 @@
-# bmodel
-Construtor de Modelo de Negócio estratégico baseado em Canvas.
+# Construtor de Modelo de Negócio - BModel
+
